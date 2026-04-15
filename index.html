@@ -237,15 +237,18 @@
 
         <form
           class="contact-form"
-          action="https://api.web3forms.com/submit"
+          name="consultation"
           method="POST"
-          data-web3forms-form
+          action="/thank-you.html"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
         >
-          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
-          <input type="hidden" name="subject" value="Bridgent Solutions Website Enquiry">
-          <input type="hidden" name="from_name" value="Bridgent Solutions Website">
-          <input type="hidden" name="redirect" value="https://bridgent-solutions.com/thank-you.html">
-          <input type="checkbox" name="botcheck" class="hidden-field" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="form-name" value="consultation">
+
+          <div class="hidden-field" aria-hidden="true">
+            <label for="bot-field">Leave this field empty</label>
+            <input id="bot-field" name="bot-field" type="text" tabindex="-1" autocomplete="off">
+          </div>
 
           <div class="form-row">
             <label for="name">Name</label>
@@ -275,7 +278,7 @@
 
           <button class="button button-primary button-block" type="submit">Request consultation</button>
           <p class="form-note" data-form-note>
-            Replace the placeholder Web3Forms access key before going live.
+            Form submissions are handled securely through Netlify Forms.
           </p>
         </form>
       </div>

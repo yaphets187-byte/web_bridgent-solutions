@@ -23,17 +23,17 @@ bridgent-solutions/
 - Responsive one-page landing page
 - Smooth-scroll navigation
 - Professional visual style using the Bridgent Solutions brand colors
-- Web3Forms-ready contact form
+- Netlify Forms contact form
 - Separate thank-you page after successful form submission
 - Static site deployable to Netlify, GitHub Pages, Cloudflare Pages, or similar platforms
 
-## Web3Forms Setup
+## Netlify Forms Setup
 
-1. Create a free account at [Web3Forms](https://web3forms.com/).
-2. Get your access key.
-3. Open `index.html`.
-4. Replace `YOUR_WEB3FORMS_ACCESS_KEY` with your real key.
-5. If your final live domain changes, update the hidden `redirect` field to the correct thank-you page URL.
+1. Keep the form markup in `index.html` unchanged so Netlify can detect it during deploy.
+2. Deploy the site to Netlify.
+3. Open your Netlify project and go to the `Forms` section.
+4. Submit a test enquiry from the live site to confirm the form is being captured.
+5. Review spam filtering or notification settings in Netlify if needed.
 
 ## Deploy to Netlify
 
@@ -72,12 +72,12 @@ Important:
 
 ## Go-Live Checklist
 
-1. Replace the Web3Forms access key in `index.html`.
-2. Deploy the site to Netlify.
-3. Add `bridgent-solutions.com` as the custom domain in Netlify.
-4. Update Namecheap DNS records for `@` and `www`.
-5. Wait for DNS propagation.
-6. Confirm the site opens on both `bridgent-solutions.com` and `www.bridgent-solutions.com`.
+1. Deploy the site to Netlify.
+2. Add `bridgent-solutions.com` as the custom domain in Netlify.
+3. Update Namecheap DNS records for `@` and `www`.
+4. Wait for DNS propagation.
+5. Confirm the site opens on both `bridgent-solutions.com` and `www.bridgent-solutions.com`.
+6. Submit a test contact form entry and verify it appears in Netlify Forms.
 
 ## Suggested Next Updates
 
