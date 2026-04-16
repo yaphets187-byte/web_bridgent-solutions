@@ -498,6 +498,39 @@ p {
     padding-top: 5.5rem;
   }
 
+  .hero-grid {
+    gap: 1.5rem;
+  }
+
+  .hero-panel {
+    padding: 1.35rem;
+  }
+
+  .hero-banner {
+    width: min(100%, 220px);
+    margin: 0 auto 1rem;
+    padding: 0.65rem;
+  }
+
+  .hero-banner-image {
+    aspect-ratio: auto;
+    width: 100%;
+    height: auto;
+  }
+
+  .panel-title {
+    margin-bottom: 0.65rem;
+  }
+
+  .focus-list {
+    font-size: 0.95rem;
+    padding-left: 1rem;
+  }
+
+  .focus-list li {
+    margin-bottom: 0.45rem;
+  }
+
   .card-grid,
   .logo-grid {
     grid-template-columns: 1fr;
@@ -517,8 +550,38 @@ p {
     font-size: 2.45rem;
   }
 
+  .hero {
+    padding: 4.75rem 0 3.5rem;
+  }
+
+  .hero-actions {
+    gap: 0.75rem;
+  }
+
+  .button {
+    min-height: 3rem;
+    padding: 0.8rem 1.1rem;
+  }
+
+  .hero-panel {
+    padding: 1.1rem;
+  }
+
+  .hero-banner {
+    width: min(100%, 180px);
+    margin-bottom: 0.85rem;
+    padding: 0.5rem;
+  }
+
+  .panel-title {
+    font-size: 0.72rem;
+  }
+
+  .focus-list {
+    font-size: 0.84rem;
+  }
+
   .contact-form,
-  .hero-panel,
   .info-card,
   .project-card,
   .logo-card,
