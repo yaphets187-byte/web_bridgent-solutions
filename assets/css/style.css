@@ -277,6 +277,7 @@ p {
 .info-card,
 .project-card,
 .logo-card,
+.platform-card,
 .contact-form,
 .thank-you-card {
   border: 1px solid var(--color-border);
@@ -336,7 +337,7 @@ p {
 }
 
 .project-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .logo-grid {
@@ -406,6 +407,48 @@ p {
   color: var(--color-accent-dark);
 }
 
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.tech-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: var(--color-surface-alt);
+  color: var(--color-accent-dark);
+  border: 1px solid var(--color-border);
+}
+
+.platform-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.platform-card {
+  padding: 1.7rem;
+}
+
+.platform-card-name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-primary);
+  margin: 0 0 0.4rem;
+}
+
+.platform-card-tools {
+  font-size: 0.88rem;
+  color: var(--color-accent-dark);
+  margin: 0;
+}
+
 .site-footer {
   border-top: 1px solid var(--color-border);
   padding: 1.5rem 0;
@@ -437,18 +480,16 @@ p {
 }
 
 @media (max-width: 980px) {
-  .card-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .logo-grid {
+  .card-grid,
+  .logo-grid,
+  .platform-grid,
+  .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .hero-grid,
   .section-grid,
-  .contact-layout,
-  .project-grid {
+  .contact-layout {
     grid-template-columns: 1fr;
   }
 }
@@ -532,7 +573,9 @@ p {
   }
 
   .card-grid,
-  .logo-grid {
+  .logo-grid,
+  .platform-grid,
+  .project-grid {
     grid-template-columns: 1fr;
   }
 
