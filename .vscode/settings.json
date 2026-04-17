@@ -1,0 +1,9 @@
+{
+  "git.openRepositoryInParentFolders": "never",
+  "files.exclude": {
+    ".netlify": true
+  },
+  "search.exclude": {
+    ".netlify": true
+  }
+}

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bridgent Solutions Website Operations Poster</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+
+    :root {
+      --navy: #162032;
+      --blue-gray: #8a9bb0;
+      --ink: #1f2937;
+      --muted: #5f7087;
+      --line: #d7dee7;
+      --paper: #ffffff;
+      --surface: #f5f7fa;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: #e9edf1;
+      color: var(--ink);
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+      padding: 16px;
+    }
+
+    .poster {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 10mm;
+      background: var(--paper);
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      gap: 10px;
+    }
+
+    .header {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--navy);
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--navy);
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .title-block h1 {
+      margin: 0 0 4px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      line-height: 1.05;
+      color: var(--navy);
+    }
+
+    .title-block p {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .summary-card {
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .summary-card strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--navy);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .summary-card span {
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .column {
+      display: grid;
+      gap: 10px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 10px 12px;
+      background: var(--paper);
+    }
+
+    .panel h2 {
+      margin: 0 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--navy);
+      font-size: 17px;
+      line-height: 1.15;
+    }
+
+    .panel p {
+      margin: 0 0 6px;
+      font-size: 11px;
+      line-height: 1.4;
+    }
+
+    .panel ul,
+    .panel ol {
+      margin: 0;
+      padding-left: 16px;
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .panel li + li {
+      margin-top: 3px;
+    }
+
+    .rule {
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .flow {
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .flow h2 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .step {
+      padding: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 10px;
+      color: var(--navy);
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background: #fff;
+      }
+
+      .poster {
+        width: auto;
+        min-height: auto;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="poster">
+    <header class="header">
+      <div class="logo">
+        <img src="assets/images/logo/bridgent_profile_icon.png" alt="Bridgent Solutions logo">
+      </div>
+      <div class="title-block">
+        <h1>Bridgent Solutions Website Operations</h1>
+        <p>A4 Print Guide for GitHub, Netlify, Branching, Forms, and Release Workflow</p>
+      </div>
+    </header>
+
+    <section class="summary">
+      <div class="summary-card">
+        <strong>Project</strong>
+        <span>Static site with HTML, CSS, JavaScript on Netlify</span>
+      </div>
+      <div class="summary-card">
+        <strong>Repository</strong>
+        <span><code>yaphets187-byte/web_bridgent-solutions</code></span>
+      </div>
+      <div class="summary-card">
+        <strong>Production</strong>
+        <span><code>main</code> branch -> live site</span>
+      </div>
+      <div class="summary-card">
+        <strong>Working</strong>
+        <span><code>dev</code> branch -> preview deploy</span>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="column">
+        <article class="panel">
+          <h2>Current Setup</h2>
+          <ul>
+            <li>Local repo folder: <code>...\\web\\bridgent-solutions</code></li>
+            <li>GitHub repo: <code>web_bridgent-solutions</code></li>
+            <li>Netlify production branch: <code>main</code></li>
+            <li>Netlify branch deploy branch: <code>dev</code></li>
+            <li>Custom domain: <code>bridgent-solutions.com</code></li>
+            <li>Contact form: Netlify Forms, form name <code>consultation</code></li>
+            <li>Notification email: <code>aslesterr@bridgent-solutions.com</code></li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h2>Branch Logic</h2>
+          <p><span class="rule">Use <code>dev</code> for normal work.</span> Make changes, test them, and push safely without touching the live site.</p>
+          <p><span class="rule">Use <code>main</code> only for release.</span> Push to <code>main</code> only when you want the production website updated.</p>
+          <ul>
+            <li><code>local dev</code> -> your computer working branch</li>
+            <li><code>origin/dev</code> -> the <code>dev</code> branch on GitHub</li>
+            <li><code>local main</code> -> your local production branch</li>
+            <li><code>origin/main</code> -> the production branch on GitHub</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h2>Daily Work Checklist</h2>
+          <ol>
+            <li>Open the repo <code>bridgent-solutions</code>.</li>
+            <li>Confirm current branch is <code>dev</code>.</li>
+            <li>Make changes.</li>
+            <li>Review changed files.</li>
+            <li>Commit changes.</li>
+            <li>Push <code>dev</code>.</li>
+            <li>Check Netlify branch preview.</li>
+            <li>Verify desktop and mobile layout.</li>
+          </ol>
+        </article>
+
+        <article class="panel">
+          <h2>Before Release Checklist</h2>
+          <ol>
+            <li>Confirm preview looks correct.</li>
+            <li>Confirm no unfinished work remains on <code>dev</code>.</li>
+            <li>Test navigation and key sections.</li>
+            <li>Test form if contact section changed.</li>
+            <li>Confirm favicon / branding if assets changed.</li>
+            <li>Check live-impacting copy carefully.</li>
+          </ol>
+        </article>
+      </div>
+
+      <div class="column">
+        <article class="panel">
+          <h2>Netlify Rules</h2>
+          <ul>
+            <li>Keep GitHub integration enabled.</li>
+            <li>Production branch must stay <code>main</code>.</li>
+            <li>Enable branch deploys for <code>dev</code>.</li>
+            <li>Push to <code>dev</code> -> preview branch deploy.</li>
+            <li>Push to <code>main</code> -> production deploy.</li>
+            <li>Forms are handled by Netlify Forms.</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h2>Forms Checklist</h2>
+          <ol>
+            <li>Submit a real test form when form-related changes are made.</li>
+            <li>Check Netlify <code>Forms</code> -> <code>consultation</code>.</li>
+            <li>Check email inbox <code>aslesterr@bridgent-solutions.com</code>.</li>
+            <li>Check spam/junk if first-time delivery does not appear.</li>
+          </ol>
+        </article>
+
+        <article class="panel">
+          <h2>Publish Release</h2>
+          <ol>
+            <li>Switch to <code>main</code>.</li>
+            <li>Pull latest <code>main</code>.</li>
+            <li>Merge <code>dev</code> into <code>main</code>.</li>
+            <li>Push <code>main</code>.</li>
+            <li>Wait for Netlify production deploy.</li>
+            <li>Check the live site on desktop and mobile.</li>
+          </ol>
+        </article>
+
+        <article class="panel">
+          <h2>Do Not</h2>
+          <ul>
+            <li>Do not do routine work on <code>main</code>.</li>
+            <li>Do not push incomplete experiments to production.</li>
+            <li>Do not discard unknown Git changes blindly.</li>
+            <li>Do not remove Microsoft 365 DNS records while editing website DNS.</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h2>If Something Looks Wrong</h2>
+          <ol>
+            <li>Check current branch first.</li>
+            <li>Check whether changes were committed.</li>
+            <li>Check whether changes were pushed.</li>
+            <li>Check Netlify deploy status.</li>
+            <li>Only then check browser cache.</li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <section class="flow">
+      <h2>Simple Workflow</h2>
+      <div class="flow-steps">
+        <div class="step">
+          <strong>1. Work</strong>
+          Edit on <code>dev</code> only.
+        </div>
+        <div class="step">
+          <strong>2. Save</strong>
+          Commit and push <code>dev</code>.
+        </div>
+        <div class="step">
+          <strong>3. Review</strong>
+          Check Netlify preview deploy.
+        </div>
+        <div class="step">
+          <strong>4. Release</strong>
+          Merge to <code>main</code>, push, and verify live site.
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>Print setting: A4 portrait, scale 100%, default margins or none.</span>
+      <span>Bridgent Solutions internal workflow reference.</span>
+    </footer>
+  </main>
+</body>
+</html>
