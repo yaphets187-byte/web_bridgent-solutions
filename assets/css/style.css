@@ -498,6 +498,13 @@ p {
   color: var(--color-accent-dark);
 }
 
+.scroll-hint {
+  display: none;
+  margin: 0.85rem 0 0;
+  font-size: 0.88rem;
+  color: var(--color-accent-dark);
+}
+
 .project-topline {
   display: flex;
   align-items: center;
@@ -661,7 +668,7 @@ p {
 .platform-grid {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .platform-card {
@@ -700,9 +707,21 @@ p {
 }
 
 .platform-icon-vba {
-  background: rgba(91, 63, 214, 0.08);
-  color: #5b3fd6;
-  border-color: rgba(91, 63, 214, 0.2);
+  background: rgba(24, 124, 74, 0.1);
+  color: #107c41;
+  border-color: rgba(16, 124, 65, 0.22);
+}
+
+.platform-icon-web {
+  background: rgba(22, 32, 50, 0.08);
+  color: #162032;
+  border-color: rgba(22, 32, 50, 0.14);
+}
+
+.platform-icon-message {
+  background: rgba(38, 154, 90, 0.1);
+  color: #229652;
+  border-color: rgba(34, 150, 82, 0.2);
 }
 
 .platform-icon svg {
@@ -813,7 +832,14 @@ p {
 @media (max-width: 980px) {
   .card-grid,
   .platform-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(300px, 32rem);
+    grid-template-columns: none;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    padding-bottom: 0.5rem;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
   }
 
   .logo-grid {
@@ -826,6 +852,15 @@ p {
 
   .project-detail-grid {
     grid-template-columns: 1fr;
+  }
+
+  .card-grid .info-card,
+  .platform-grid .platform-card {
+    scroll-snap-align: start;
+  }
+
+  .scroll-hint {
+    display: block;
   }
 
   .hero-layout,
@@ -917,7 +952,10 @@ p {
   }
 
   .card-grid,
-  .platform-grid,
+  .platform-grid {
+    grid-auto-columns: minmax(280px, 86vw);
+  }
+
   .logo-grid {
     grid-template-columns: 1fr;
   }
@@ -996,3 +1034,81 @@ p {
     font-size: 1.16rem;
   }
 }
+
+/* ============================================================ */
+/* ==== BRIDGENT AUDIT PATCH START — delete this block to revert */
+/* ============================================================ */
+
+/* Hero / typography */
+.hero h1 { font-size: clamp(2.25rem, 4vw + 1rem, 4rem); line-height: 1.1; }
+h3 { font-size: 1.625rem; line-height: 1.25; }
+.section p, .about p, .service-card p, .info-card p { max-width: 62ch; }
+
+/* Nav */
+.nav-links a { font-weight: 500; font-size: 15px; letter-spacing: 0.01em; transition: color .15s; }
+.nav-links a:hover { color: #162032; }
+.nav-toggle { border: 1px solid #d3dae3; }
+.nav-toggle:hover { background: #f4f7fb; }
+
+/* Accessibility */
+html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+:focus-visible { outline: 2px solid #162032; outline-offset: 3px; border-radius: 4px; }
+::selection { background: #162032; color: #ffffff; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+/* Cards */
+.service-card, .info-card { transition: transform .15s, box-shadow .15s; border-radius: 16px; }
+.service-card:hover, .info-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(22,32,50,.08); }
+.platform-card { background: #f7f9fc; border: 1px solid #e8ecf2; box-shadow: none; border-radius: 20px; }
+
+/* Tech tags */
+.tech-tag { font-size: 12px; padding: 4px 10px; border: 1px solid #d3dae3; background: #f4f7fb; color: #4a5a72; font-weight: 500; letter-spacing: 0.02em; }
+
+/* About callout */
+.about-note { background: #f7f9fc; border-left: 3px solid #162032; padding: 20px 24px; border-radius: 0 12px 12px 0; margin-top: 24px; }
+.about-note strong { display: block; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: #162032; margin-bottom: 8px; }
+
+/* Form polish */
+.hp-field, [name="bot-field"] { position: absolute !important; left: -9999px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
+form label { display: block; font-weight: 500; font-size: 14px; color: #4a5a72; margin-bottom: 6px; letter-spacing: 0.02em; }
+form input:not([type=hidden]):not([name="bot-field"]), form textarea, form select {
+  border: 1px solid #d3dae3;
+  transition: border-color .15s, box-shadow .15s;
+}
+form input:focus, form textarea:focus, form select:focus {
+  border-color: #162032; box-shadow: 0 0 0 3px rgba(22,32,50,0.12); outline: none;
+}
+form .btn-primary, form [type="submit"] { width: auto !important; display: inline-flex; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+
+/* Buttons */
+.btn-primary { box-shadow: 0 4px 12px rgba(22,32,50,.2); transition: transform .15s, box-shadow .15s; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(22,32,50,.28); }
+
+/* Examples grid */
+@media (min-width: 980px) {
+  .examples-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .examples-grid .project:nth-child(3) { grid-column: 1 / -1; max-width: 640px; margin: 0 auto; }
+}
+
+/* Mobile nav drawer */
+.mobile-nav { position: fixed; inset: 81px 0 0 0; background: #ffffff; padding: 32px 24px; z-index: 50; border-top: 1px solid #e8ecf2; }
+.mobile-nav[hidden] { display: none; }
+.mobile-nav ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
+.mobile-nav a { display: block; padding: 16px 0; font-family: Georgia, serif; font-size: 22px; color: #162032; border-bottom: 1px solid #eef1f5; text-decoration: none; }
+body.nav-open { overflow: hidden; }
+
+/* Mobile hero */
+@media (max-width: 760px) {
+  .hero { padding-top: 120px; }
+}
+
+/* Project visuals */
+.project-visual, #examples img { width: 100%; height: auto; display: block; border-radius: 12px; }
+
+/* ============================================================ */
+/* ==== BRIDGENT AUDIT PATCH END ============================== */
+/* ============================================================ */
