@@ -171,11 +171,22 @@ textarea {
   padding: 7rem 0 5rem;
 }
 
+.hero-simple,
+.hero-layout,
 .hero-grid,
 .section-grid,
 .contact-layout {
   display: grid;
   gap: 2rem;
+}
+
+.hero-simple {
+  max-width: 860px;
+}
+
+.hero-layout {
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  align-items: start;
 }
 
 .hero-grid {
@@ -230,6 +241,11 @@ p {
   max-width: 60ch;
 }
 
+.section-intro {
+  max-width: 60ch;
+  color: var(--color-accent-dark);
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -273,6 +289,7 @@ p {
   width: 100%;
 }
 
+.hero-proof,
 .hero-panel,
 .info-card,
 .project-card,
@@ -288,6 +305,51 @@ p {
 
 .hero-panel {
   padding: 2rem;
+}
+
+.hero-proof {
+  padding: 1.5rem;
+}
+
+.hero-proof-label,
+.about-note-title {
+  margin: 0 0 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+}
+
+.hero-proof-grid {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.hero-proof-card {
+  padding: 1rem 1.05rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  background: var(--color-surface);
+}
+
+.hero-proof-card h2 {
+  margin: 0 0 0.45rem;
+  font-size: 1.05rem;
+}
+
+.hero-proof-card p,
+.hero-proof-note,
+.project-outcome,
+.platform-card-copy,
+.section-copy-muted {
+  margin: 0;
+  color: var(--color-accent-dark);
+}
+
+.hero-proof-note {
+  margin-top: 1rem;
+  font-size: 0.95rem;
 }
 
 .hero-banner {
@@ -321,6 +383,27 @@ p {
   align-items: start;
 }
 
+.about-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.about-note {
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  background: var(--color-surface);
+}
+
+.about-note-list {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.about-note-list li + li {
+  margin-top: 0.35rem;
+}
+
 .section-heading {
   margin-bottom: 2rem;
 }
@@ -337,7 +420,13 @@ p {
 }
 
 .project-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(320px, 34rem);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  padding-bottom: 0.5rem;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
 }
 
 .logo-grid {
@@ -348,6 +437,130 @@ p {
 .project-card,
 .logo-card {
   padding: 1.7rem;
+}
+
+.info-card {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.info-card > * {
+  margin: 0;
+}
+
+.service-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.service-head h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.service-icon {
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 0.6rem;
+  border: 1px solid rgba(211, 218, 227, 0.7);
+  background: rgba(244, 246, 248, 0.85);
+  color: var(--color-primary);
+}
+
+.service-icon svg {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.project-card {
+  display: grid;
+  gap: 0.75rem;
+  scroll-snap-align: start;
+}
+
+.project-card > * {
+  margin: 0;
+}
+
+.examples-hint {
+  margin: 0.85rem 0 0;
+  font-size: 0.88rem;
+  color: var(--color-accent-dark);
+}
+
+.project-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.project-context {
+  font-size: 0.82rem;
+  color: var(--color-accent-dark);
+  letter-spacing: 0.03em;
+}
+
+.project-lead {
+  color: var(--color-primary);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.project-visual {
+  margin: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.project-visual img {
+  width: 100%;
+  height: auto;
+}
+
+.project-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.project-detail {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  background: rgba(255, 255, 255, 0.78);
+  padding: 0.95rem 1rem;
+}
+
+.project-detail p + p {
+  margin-top: 0.35rem;
+}
+
+.project-detail-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+}
+
+.project-outcome {
+  padding: 0.95rem 1rem 0;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.94rem;
+  color: var(--color-primary);
+  font-weight: 600;
 }
 
 .logo-card {
@@ -453,19 +666,114 @@ p {
 
 .platform-card {
   padding: 1.7rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.platform-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.platform-icon {
+  width: 2.8rem;
+  height: 2.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 0.95rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-primary);
+}
+
+.platform-icon-brand {
+  background: #fff;
+}
+
+.platform-icon-pwa {
+  background: rgba(0, 164, 239, 0.1);
+  color: #0078d4;
+  border-color: rgba(0, 120, 212, 0.22);
+}
+
+.platform-icon-vba {
+  background: rgba(91, 63, 214, 0.08);
+  color: #5b3fd6;
+  border-color: rgba(91, 63, 214, 0.2);
+}
+
+.platform-icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.platform-icon-microsoft svg {
+  width: 1.45rem;
+  height: 1.45rem;
+  fill: none;
+  stroke: none;
+}
+
+.platform-icon-google svg {
+  width: 1.55rem;
+  height: 1.55rem;
+}
+
+.platform-icon-microsoft .ms-red {
+  fill: #f25022;
+}
+
+.platform-icon-microsoft .ms-green {
+  fill: #7fba00;
+}
+
+.platform-icon-microsoft .ms-blue {
+  fill: #00a4ef;
+}
+
+.platform-icon-microsoft .ms-yellow {
+  fill: #ffb900;
+}
+
+.platform-icon-google .g-blue {
+  fill: #4285f4;
+}
+
+.platform-icon-google .g-green {
+  fill: #34a853;
+}
+
+.platform-icon-google .g-yellow {
+  fill: #fbbc05;
+}
+
+.platform-icon-google .g-red {
+  fill: #ea4335;
 }
 
 .platform-card-name {
   font-weight: 700;
   font-size: 1rem;
   color: var(--color-primary);
-  margin: 0 0 0.4rem;
+  margin: 0;
 }
 
 .platform-card-tools {
   font-size: 0.88rem;
   color: var(--color-accent-dark);
   margin: 0;
+}
+
+.platform-card-copy {
+  font-size: 0.94rem;
 }
 
 .site-footer {
@@ -477,9 +785,13 @@ p {
 .footer-inner {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: flex-start;
+  gap: 1.25rem;
   color: var(--color-accent-dark);
+}
+
+.footer-inner p {
+  margin: 0;
 }
 
 .thank-you-body {
@@ -500,12 +812,23 @@ p {
 
 @media (max-width: 980px) {
   .card-grid,
-  .logo-grid,
-  .platform-grid,
-  .project-grid {
+  .platform-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .logo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-grid {
+    grid-auto-columns: minmax(320px, 32rem);
+  }
+
+  .project-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-layout,
   .hero-grid,
   .section-grid,
   .contact-layout {
@@ -558,10 +881,12 @@ p {
     padding-top: 5.5rem;
   }
 
+  .hero-layout,
   .hero-grid {
     gap: 1.5rem;
   }
 
+  .hero-proof,
   .hero-panel {
     padding: 1.35rem;
   }
@@ -592,10 +917,13 @@ p {
   }
 
   .card-grid,
-  .logo-grid,
   .platform-grid,
-  .project-grid {
+  .logo-grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-grid {
+    grid-auto-columns: minmax(280px, 86vw);
   }
 
   .section {
@@ -625,6 +953,7 @@ p {
     padding: 0.8rem 1.1rem;
   }
 
+  .hero-proof,
   .hero-panel {
     padding: 1.1rem;
   }
@@ -639,6 +968,13 @@ p {
     font-size: 0.72rem;
   }
 
+  .hero-proof-card h2 {
+    font-size: 0.98rem;
+  }
+
+  .hero-proof-note,
+  .project-outcome,
+  .platform-card-copy,
   .focus-list {
     font-size: 0.84rem;
   }
@@ -650,5 +986,13 @@ p {
   .thank-you-card {
     padding: 1.4rem;
     border-radius: var(--radius-medium);
+  }
+
+  .service-head {
+    gap: 0.65rem;
+  }
+
+  .service-head h3 {
+    font-size: 1.16rem;
   }
 }
