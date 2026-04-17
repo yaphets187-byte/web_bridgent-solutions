@@ -26,6 +26,11 @@
 - Push to `dev` -> branch preview deploy
 - Push to `main` -> production deploy
 
+## Local Development
+- Use `localhost:8888` for fast local editing and layout checks
+- Use Netlify preview for branch-level validation before release
+- Use production only for final live verification
+
 ## Forms
 - Form name: `consultation`
 - Notification email: `aslesterr@bridgent-solutions.com`
@@ -34,18 +39,20 @@
 1. Open the repo.
 2. Confirm current branch is `dev`.
 3. Make changes.
-4. Review changed files.
-5. Commit changes.
-6. Push `dev`.
-7. Check Netlify preview deploy.
-8. Verify desktop and mobile layout.
+4. Check changes quickly on `localhost:8888`.
+5. Review changed files.
+6. Commit changes.
+7. Push `dev`.
+8. Check Netlify preview deploy.
+9. Verify desktop and mobile layout.
 
 ## Before Release
-1. Confirm preview looks correct.
-2. Confirm no unfinished work remains on `dev`.
-3. Test key sections and navigation.
-4. Test form if contact section changed.
-5. Check branding assets if logo or favicon changed.
+1. Confirm `localhost:8888` looks correct first.
+2. Confirm Netlify preview looks correct.
+3. Confirm no unfinished work remains on `dev`.
+4. Test key sections and navigation.
+5. Test form if contact section changed.
+6. Check branding assets if logo or favicon changed.
 
 ## Publish Release
 1. Switch to `main`.
@@ -75,4 +82,4 @@
 5. Check browser cache only after deploy succeeds.
 
 ## Simple Workflow
-`dev` -> commit -> push `dev` -> review preview -> merge to `main` -> push `main` -> verify live site
+`dev` -> test on localhost -> commit -> push `dev` -> review Netlify preview -> merge to `main` -> push `main` -> verify live site
