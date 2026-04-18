@@ -187,7 +187,23 @@ textarea {
 }
 
 .hero-simple {
-  max-width: 860px;
+  max-width: none;
+}
+
+.hero-copy {
+  max-width: 46rem;
+}
+
+.hero-about {
+  max-width: 42rem;
+}
+
+.hero-about .section-label {
+  margin-bottom: 0.65rem;
+}
+
+.hero-about .section-intro {
+  margin-bottom: 0;
 }
 
 .hero-layout {
@@ -392,6 +408,25 @@ p {
 .about-stack {
   display: grid;
   gap: 1rem;
+}
+
+#about h2 {
+  font-size: clamp(2.2rem, 3.5vw, 3.4rem);
+}
+
+.about-banner {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1.25rem;
+  background: linear-gradient(180deg, rgba(244, 246, 248, 0.82), rgba(255, 255, 255, 0.96));
+  box-shadow: var(--shadow-soft);
+}
+
+.about-banner img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.8rem;
 }
 
 .about-note {
