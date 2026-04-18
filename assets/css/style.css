@@ -56,7 +56,7 @@ textarea {
 }
 
 .section {
-  padding: 4rem 0;
+  padding: 1.5rem 0;
 }
 
 .section-alt {
@@ -161,6 +161,7 @@ textarea {
 
 .nav-toggle span {
   display: block;
+  flex-shrink: 0;
   width: 1.25rem;
   height: 2px;
   margin: 0.28rem 0;
@@ -168,7 +169,7 @@ textarea {
 }
 
 .hero {
-  padding: 7rem 0 1.5rem;
+  padding: 2.5rem 0 0.5rem;
 }
 
 .hero-simple,
@@ -201,7 +202,7 @@ textarea {
   font-size: 0.8rem;
   font-weight: 700;
   color: var(--color-accent-dark);
-  margin: 0 0 0.8rem;
+  margin: 0 0 1.25rem;
 }
 
 h1,
@@ -913,7 +914,7 @@ p {
   }
 
   .hero {
-    padding-top: 5.5rem;
+    padding-top: 2rem;
   }
 
   .hero-layout,
@@ -965,7 +966,7 @@ p {
   }
 
   .section {
-    padding: 3.5rem 0;
+    padding: 1.25rem 0;
   }
 }
 
@@ -979,7 +980,7 @@ p {
   }
 
   .hero {
-    padding: 4.75rem 0 3.5rem;
+    padding: 1.75rem 0 0.5rem;
   }
 
   .hero-actions {
@@ -1061,7 +1062,8 @@ html { scroll-behavior: smooth; scroll-padding-top: 96px; }
 /* Cards */
 .service-card, .info-card { transition: transform .15s, box-shadow .15s; border-radius: 16px; }
 .service-card:hover, .info-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(22,32,50,.08); }
-.platform-card { background: #f7f9fc; border: 1px solid #e8ecf2; box-shadow: none; border-radius: 20px; }
+.platform-card { background: #f7f9fc; border: 1px solid #e8ecf2; box-shadow: none; border-radius: 20px; transition: transform .15s, box-shadow .15s, border-color .15s; }
+.platform-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(22,32,50,.08); border-color: #d3dae3; }
 
 /* Tech tags */
 .tech-tag { font-size: 12px; padding: 4px 10px; border: 1px solid #d3dae3; background: #f4f7fb; color: #4a5a72; font-weight: 500; letter-spacing: 0.02em; }
@@ -1103,7 +1105,7 @@ body.nav-open { overflow: hidden; }
 
 /* Mobile hero */
 @media (max-width: 760px) {
-  .hero { padding-top: 120px; }
+  .hero { padding-top: 32px; }
 }
 
 /* Project visuals */
