@@ -83,26 +83,31 @@ textarea {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.875rem;
+  gap: 0.75rem;
   min-width: 0;
 }
 
 .brand-mark {
-  width: 3rem;
-  height: 3rem;
+  width: 2.6rem;
+  height: 2.6rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   border-radius: 0.85rem;
-  overflow: hidden;
   border: 1px solid var(--color-border);
-  background: var(--color-primary);
+  background: var(--color-surface);
+  color: var(--color-primary);
 }
 
-.brand-logo-icon {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.brand-mark svg {
+  width: 1.7rem;
+  height: 1.7rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .brand-text {
@@ -582,18 +587,22 @@ p {
 }
 
 .contact-layout {
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 0.98fr);
+  gap: 1.4rem;
   align-items: start;
 }
 
 .contact-form {
-  padding: 2rem;
+  max-width: 36rem;
+  width: 100%;
+  margin-left: auto;
+  padding: 1.45rem;
 }
 
 .form-row {
   display: grid;
   gap: 0.45rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .form-row label {
@@ -604,7 +613,7 @@ p {
 .form-row input,
 .form-row textarea {
   width: 100%;
-  padding: 0.9rem 1rem;
+  padding: 0.78rem 0.9rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-small);
   background: var(--color-white);
@@ -623,7 +632,7 @@ p {
 }
 
 .form-note {
-  margin-top: 0.9rem;
+  margin-top: 0.65rem;
   font-size: 0.92rem;
   color: var(--color-accent-dark);
 }
@@ -1083,8 +1092,7 @@ form input:focus, form textarea:focus, form select:focus {
   border-color: #162032; box-shadow: 0 0 0 3px rgba(22,32,50,0.12); outline: none;
 }
 form .btn-primary, form [type="submit"] { width: auto !important; display: inline-flex; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-@media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+.form-row { display: grid; grid-template-columns: 1fr; gap: 0.45rem; }
 
 /* Buttons */
 .btn-primary { box-shadow: 0 4px 12px rgba(22,32,50,.2); transition: transform .15s, box-shadow .15s; }
